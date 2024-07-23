@@ -494,9 +494,55 @@ color: $text;
     &__inner{
         display: flex;
     }
-
 }
 
+.icon-time{
+    fill: $accent;
+}
+
+.about{
+    &__inner{
+        display: flex;
+        align-items:center;
+        justify-content: center;
+    }
+    &__inner-img{
+        margin-right: 120px;
+    }
+    &__items{
+        display: flex;
+        align-items:center;
+        gap:30px;
+    }
+    &__content{
+        max-width: 470px;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 30px;
+    }
+    &__title{
+        margin-bottom: 30px;
+        font-size: 36px;
+    }
+    &__text{
+        margin-bottom: 30px;
+    }
+    
+    &__items{
+    font-size: 24px;
+    }
+    &__items:not(last-child){
+        margin-bottom: 20px;
+    }
+    &__btn{
+        margin-top: 10px;
+    }
+}
+
+.active__btn {
+    background-color: $accent;
+    color: $text;
+    }
 
 
 @import "media";

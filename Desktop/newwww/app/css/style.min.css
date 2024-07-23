@@ -268,6 +268,12 @@ body {
   margin-top: auto;
 }
 
+.icon {
+  display: block;
+  width: 35px;
+  height: 34px;
+}
+
 .active-elmn:focus {
   border: 1px solid #ff6838;
   border-radius: 5px;
@@ -939,4 +945,59 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.icon-time {
+  fill: #ff6838;
+}
+
+.about__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.about__inner-img {
+  margin-right: 120px;
+}
+.about__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 30px;
+}
+.about__content {
+  max-width: 470px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+.about__title {
+  margin-bottom: 30px;
+  font-size: 36px;
+}
+.about__text {
+  margin-bottom: 30px;
+}
+.about__items {
+  font-size: 24px;
+}
+.about__items:not(last-child) {
+  margin-bottom: 20px;
+}
+.about__btn {
+  margin-top: 10px;
+}
+
+.active__btn {
+  background-color: #ff6838;
+  color: #ffffff;
 }

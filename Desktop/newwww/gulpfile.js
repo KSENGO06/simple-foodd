@@ -1,3 +1,5 @@
+const gulp = require('gulp');
+const fileinclude = require('gulp-file-include');
 const { src, dest, watch, parallel, series } = require("gulp");
 const scss = require("gulp-sass")(require("sass"));
 const concat = require("gulp-concat");
@@ -6,6 +8,7 @@ const uglify = require("gulp-uglify");
 const imagemin = require("gulp-imagemin");
 const del = require("del");
 const browserSync = require("browser-sync").create();
+const svgSprite = require('gulp-svg-sprite');
 
 function browsersync() {
   browserSync.init({
@@ -14,6 +17,29 @@ function browsersync() {
     },
     notify: false,
   });
+}
+
+function svgSprites() {
+  return src('app/images/icons/*.svg') // вибираємо всі файли з розширенням svg у папці з іконками
+    .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: '../sprite.svg', // вказуємо ім'я файлу спрайта та шлях
+          },
+        },
+      })
+    )
+    .pipe(dest('app/images')); // вказуємо, в яку папку помістити готовий файл спрайта
+}
+
+function fileIncludes() {
+  return src(['src/*.html'])
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(dest('./dist'));
 }
 
 function styles() {
@@ -59,6 +85,7 @@ function watching() {
   watch(["app/scss/**/*.scss"], styles);
   watch(["app/js/**/*.js", "!app/js/main.min.js"], scripts);
   watch(["app/**/*.html"]).on("change", browserSync.reload);
+  watch(['app/images/icons/*.svg'], svgSprites);
 }
 
 function scripts() {
@@ -80,5 +107,8 @@ exports.watching = watching;
 exports.images = images;
 exports.cleanDist = cleanDist;
 exports.build = series(cleanDist, images, build);
+exports.svgSprites = svgSprites;
+exports.fileIncludes = fileIncludes;
 
-exports.default = parallel(styles, scripts, browsersync, watching);
+exports.default = parallel(svgSprites, styles, fileIncludes, scripts, browsersync, watching);
+
