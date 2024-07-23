@@ -82,6 +82,7 @@ gap: 10px;
 }
 
 .hero {
+
 &__content {
     padding-top: 155px;
     padding-bottom: 285px;
@@ -281,7 +282,7 @@ line-height: 1;
     background-color: $text;
     border: 1px solid $border;
     border-radius: 5px;
-    padding: 20px 15px;
+    padding: 22px 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -334,7 +335,8 @@ font-size: 15px;
 .slider{
     &__items {
         display: flex; 
-        align-items:center;/* Встановлює флекс-контейнер для елементів слайдера */
+        align-items:center;
+        position: relative;
     }
     
     &__content {
@@ -359,6 +361,7 @@ font-size: 15px;
         max-width: 650px;
         width: 100%;
     }
+
     &__name{
         color: $accent;
         margin-bottom: 14px;
@@ -381,6 +384,7 @@ font-size: 15px;
         margin-bottom: 30px;
         line-height: 1.5;
     }
+
     &__text::before {
         content: ""; /* Необхідно для того, щоб псевдоелемент відображався */
         position: absolute; /* Абсолютне позиціонування */
@@ -393,6 +397,7 @@ font-size: 15px;
         background-size: contain; /* Вміщення іконки в контейнер */
         background-repeat: no-repeat;
     }
+
     &__text::after {
         content: ""; /* Необхідно для того, щоб псевдоелемент відображався */
         position: absolute; /* Абсолютне позиціонування */
@@ -408,17 +413,13 @@ font-size: 15px;
 }
 
 
-
-
-
 .slick-dots{
     display: flex;
     justify-content: center;
-
     gap: 15px;
     position: relative;
-    padding-left: 40px;
-    padding-right: 40px;
+    left: 40px;
+    right: 40px;
 
 li{
     button{
@@ -436,30 +437,6 @@ background-color:$accent;
     }
 }
 }
-.slick-dots::after{
-    content: ""; /* Необхідно для того, щоб псевдоелемент відображався */
-    position: absolute; /* Абсолютне позиціонування */
-    left: 470px; /* Відступ від лівого краю контейнера тексту */
-    top: 20px; /* Центрування іконки по вертикалі */
-    transform: translateY(-50%) scaleX(1) ; /* Центрування по вертикалі */
-    width: 40px; /* Ширина іконки */
-    height: 40px; /* Висота іконки */
-    background-image: url(../images/icons/arrow_slider.svg); /* URL до вашої іконки */
-    background-size: contain; /* Вміщення іконки в контейнер */
-    background-repeat: no-repeat;
-}
-.slick-dots::before{
-    content: ""; /* Необхідно для того, щоб псевдоелемент відображався */
-    position: absolute; /* Абсолютне позиціонування */
-    right:470px; /* Відступ від лівого краю контейнера тексту */
-    top: 20px; /* Центрування іконки по вертикалі */
-    transform: translateY(-50%) scaleX(-1) ; /* Центрування по вертикалі */
-    width: 40px; /* Ширина іконки */
-    height: 40px; /* Висота іконки */
-    background-image: url(../images/icons/arrow_slider.svg); /* URL до вашої іконки */
-    background-size: contain; /* Вміщення іконки в контейнер */
-    background-repeat: no-repeat;
-}
 
 .active__btn {
 background-color: $accent;
@@ -476,6 +453,7 @@ color: $text;
         padding-top:  50px;
         padding-bottom: 40px;
     }
+
     &__icons{
         display: flex;
         gap:30px;
@@ -488,9 +466,11 @@ color: $text;
         color:$title;
         margin-bottom: 45px;
     }
+
     &__text{
         margin-bottom: 30px;
     }
+
     &__inner{
         display: flex;
     }
@@ -506,24 +486,30 @@ color: $text;
         align-items:center;
         justify-content: center;
     }
+
     &__inner-img{
         margin-right: 120px;
     }
+
     &__items{
         display: flex;
         align-items:center;
         gap:30px;
     }
+
     &__content{
         max-width: 470px;
         width: 100%;
         padding-top: 10px;
         padding-bottom: 30px;
     }
+
     &__title{
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        padding-top:10px ;
         font-size: 36px;
     }
+
     &__text{
         margin-bottom: 30px;
     }
@@ -531,11 +517,76 @@ color: $text;
     &__items{
     font-size: 24px;
     }
+
     &__items:not(last-child){
         margin-bottom: 20px;
     }
+
     &__btn{
         margin-top: 10px;
+    }
+}
+
+.restaurants{
+    
+    &__btn{
+        background-color:$accent;
+        padding: 2px 32px;
+        border-radius:20px;
+        margin-left: 110px;
+    }
+
+    &__arow{
+        width: 14px;
+        height: 13px;
+    }
+
+    &__inner{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    &-card{
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+        background-color:$text;
+    }
+    
+    &__title{
+        font-size: 24px;  
+        line-height: 1.3;
+        margin-bottom: 15px;
+        @extend%rubik-400;
+    }
+    
+    &__time{
+        @extend%rubik-300;
+        font-size: 18px;
+        line-height: 1.67;
+    }
+
+    &__time{
+        position: relative;
+        padding-left: 30px;
+    }
+    
+    &__text{
+        padding-left: 20px;
+        padding-bottom: 20px;
+        padding-top: 15px;
+    }
+    
+    &__time::after{
+        position: absolute;
+        content: ""; 
+        left:0px; 
+        top: 10px; 
+        transform: translateY(-50%) scaleX(-1) ;
+        width: 22px;
+        height: 22px; 
+        background-image: url(../images/rest/icon/work_time.svg); 
+        background-size: contain; 
+        background-repeat: no-repeat;
     }
 }
 
@@ -543,6 +594,7 @@ color: $text;
     background-color: $accent;
     color: $text;
     }
+
 
 
 @import "media";
